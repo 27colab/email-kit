@@ -1,0 +1,30 @@
+{
+  "name": "@27colab/email-kit",
+  "version": "0.1.0",
+  "description": "Provider-agnostic transactional email toolkit: Resend adapter, EN/ES templates, idempotency, retry, suppression, attachment batching, test fakes.",
+  "license": "MIT",
+  "author": "Jesus Vasquez",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./testing": { "types": "./dist/testing.d.ts", "import": "./dist/testing.js" }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "sideEffects": false,
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "publishConfig": { "access": "public", "provenance": true },
+  "keywords": ["email", "resend", "transactional", "templates", "i18n", "idempotency", "suppression"],
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}
