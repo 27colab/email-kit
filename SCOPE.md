@@ -27,6 +27,7 @@ over plain `fetch` and being careful about who you send to.
 | Typed templates with EN/ES (any locale) + safe HTML escaping | i18n layer without a template engine |
 | Attachment batching by count and total bytes | Providers cap message size |
 | "Email me this" helper: spoken/typed address parsing, read-back, self-only guard | Reusable by chat and voice bots |
+| Inbound: `InboundEmail`, Resend webhook adapter, raw MIME parser, auto-responder/loop guards, threaded replies | Any app answering mail sent to its inbox |
 
 ## Out (stays private)
 
@@ -40,7 +41,9 @@ real domain, API keys, persistence layers, any client branding.
   domains. A generic version would just restate the Resend docs, so it is a short
   pointer in the README, not a feature.
 - Reminder scheduling: that is a scheduler concern, not email.
-- Inbound email parsing: no source material, different problem.
+- Inbound email parsing: originally dropped for lack of source material. Added in 0.2 as
+  generic plumbing only (normalized `InboundEmail`, MIME parsing, auto-responder and loop
+  guards, threaded replies); who answers, with what, and the approval flow stay in the app.
 
 ## Verdict
 
