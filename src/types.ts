@@ -7,6 +7,8 @@ export interface Attachment {
 
 export interface EmailMessage {
   to: string;
+  /** Extra visible recipients, e.g. the other participants of an inbound thread. */
+  cc?: string[];
   subject: string;
   text?: string;
   html?: string;

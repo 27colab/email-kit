@@ -42,7 +42,7 @@ export function createMailer(opts: MailerOptions): Mailer {
   const store = opts.idempotencyStore ?? new MemoryIdempotencyStore();
 
   const send: Mailer['send'] = async (message, options = {}) => {
-    if (!isValidEmail(message.to)) {
+    if (!isValidEmail(message.to) || message.cc?.some((a) => !isValidEmail(a))) {
       throw new EmailRefusedError('invalid-address', `Invalid recipient address`);
     }
     if (!message.text && !message.html) {

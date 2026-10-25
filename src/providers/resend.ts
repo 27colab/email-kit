@@ -43,6 +43,7 @@ export class ResendProvider implements EmailProvider {
       to: [message.to],
       subject: message.subject,
     };
+    if (message.cc?.length) payload.cc = message.cc;
     if (message.text) payload.text = message.text;
     if (message.html) payload.html = message.html;
     if (message.replyTo) payload.reply_to = message.replyTo;

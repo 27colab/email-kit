@@ -1,7 +1,7 @@
 {
   "name": "@27colab/email-kit",
   "version": "0.1.0",
-  "description": "Provider-agnostic transactional email toolkit: Resend adapter, EN/ES templates, idempotency, retry, suppression, attachment batching, test fakes.",
+  "description": "Provider-agnostic transactional email toolkit: Resend adapter (send and receive), EN/ES templates, idempotency, retry, suppression, inbound parsing with auto-responder and loop guards, test fakes.",
   "license": "MIT",
   "repository": { "type": "git", "url": "git+https://github.com/27colab/email-kit.git" },
   "homepage": "https://docs.27colab.com",
@@ -24,7 +24,7 @@
     "prepublishOnly": "npm run typecheck && npm test && npm run build"
   },
   "publishConfig": { "access": "public", "provenance": true },
-  "keywords": ["email", "resend", "transactional", "templates", "i18n", "idempotency", "suppression"],
+  "keywords": ["email", "resend", "transactional", "templates", "i18n", "idempotency", "suppression", "inbound", "webhook", "mime"],
   "devDependencies": {
     "@types/node": "^22.0.0",
     "typescript": "^5.6.0",
